@@ -13,13 +13,13 @@
 
   <tbody>
     <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.body %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div>
+        <div><%= blog.title %></div>
+        <div><%= blog.body %></div>
+          <%= link_to 'Show', blog %>
+          <%= link_to 'Edit', edit_blog_path(blog) %>   
+        <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %> <hr>  
+      </div>
     <% end %>
   </tbody>
 </table>
