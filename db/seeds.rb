@@ -4,7 +4,7 @@
 		body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et sem eget 
 	neque dignissim luctus. Maecenas sed quam a leo sodales scelerisque id a mauris. 
 	Nullam ligula diam, sollicitudin rhoncus consequat id, tempus a risus. Nunc ornare 
-	id purus quis malesuada. Sed ac risus sit amet velit tristique faucibus."
+	id purus quis malesuada. Sed ac risus sit amet velit tristique faucibus.",
 	)
 	end
 
@@ -19,16 +19,15 @@ end
 
 puts '5 skills created'
 
-7.times do |portafolio|
+8.times do |portafolio|
 	Portafolio.create!(
 		title: "my Image#{portafolio}",
-		subtitle: 'main image',
+		subtitle: 'exterior painting',
 		body: 'Nullam ligula diam, sollicitudin rhoncus consequat id, tempus a risus. Nunc ornare 
 		id purus quis malesuada. Sed ac risus sit amet velit tristique faucibus.',
-		main_image: 'main image',
-		thumb_image: 'thumb image',
+		main_image: "http://via.placeholder.com/400x200",
+		thumb_image: "http://via.placeholder.com/200x150"
 )
 end
 
-	puts '7 portafolios created'
 

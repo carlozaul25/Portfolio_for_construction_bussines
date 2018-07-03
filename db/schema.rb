@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_165250) do
+ActiveRecord::Schema.define(version: 2018_07_03_190149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2018_07_02_165250) do
     t.integer "status", default: 0
     t.bigint "topic_id"
     t.index ["topic_id"], name: "index_blogs_on_topic_id"
+  end
+
+  create_table "constructions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "portafolio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portafolio_id"], name: "index_constructions_on_portafolio_id"
   end
 
   create_table "portafolios", force: :cascade do |t|
@@ -40,6 +48,7 @@ ActiveRecord::Schema.define(version: 2018_07_02_165250) do
     t.integer "percent_utilized"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "points"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -49,4 +58,5 @@ ActiveRecord::Schema.define(version: 2018_07_02_165250) do
   end
 
   add_foreign_key "blogs", "topics"
+  add_foreign_key "constructions", "portafolios"
 end
