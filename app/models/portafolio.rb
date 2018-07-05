@@ -1,5 +1,8 @@
 class Portafolio < ApplicationRecord
-	has_many :constructions
+	has_many :constructions 
+	accepts_nested_attributes_for :constructions, 
+							      reject_if: lambda {|a| a['name'].blank? }
+
 	validates_presence_of :title, :body, :main_image, :thumb_image
 	after_initialize :set_main_image
 
