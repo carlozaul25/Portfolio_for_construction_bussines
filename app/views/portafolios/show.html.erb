@@ -2,5 +2,12 @@
 
 <h1><%= @portafolio.title %></h1>
 <strong><%=@portafolio.subtitle %></strong>
-
 <p><%=@portafolio.body %></p>
+
+<h2>Skills Used</h2>
+
+<% @portafolio.constructions.each do |c|%>
+<p><%= c.name %></p>
+<% end %>
+
+
