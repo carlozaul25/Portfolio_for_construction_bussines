@@ -14,4 +14,20 @@ class ApplicationController < ActionController::Base
 		super ||  OpenStruct.new(name: "Guest User", first_name: "Guest", last_name: "User", email: 'guest@email.com')
 	end
 
+	before_action :set_copyright
+
+	def set_copyright
+		@copyright = AndresPaint::Renderer.copyright "Carlos Rivera", "all right reserved"
+	end
+
+
+
+	module AndresPaint
+		class Renderer
+			def self.copyright name, msg
+				"&copy: #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+			end
+		end
+	end
+	
 end
