@@ -13,23 +13,14 @@
 
   <body>
  <!-- start of nav -->
-  <div class="blog-masthead">
-      <div class="container">
-        <nav class="nav blog-nav">
-          <a class="nav-link active" href="#">Home</a>
-          <a class="nav-link" href="#">New features</a>
-          <a class="nav-link" href="#">Press</a>
-          <a class="nav-link" href="#">New hires</a>
-          <a class="nav-link" href="#">About</a>
-        </nav>
-      </div>
-    </div>
+ <%= render 'shared/blog' %>
 <!-- end -->
 
   <div class="blog-header">
       <div class="container">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+        <h1 class="blog-title">Andres Painting</h1>
+        <p class="lead blog-description">Tips</p>
+        <%= link_to 'write a new Blog', new_blog_path %>
       </div>
     </div>
 
@@ -38,6 +29,7 @@
 
       <div class="row">
 
+  <%= yield %>
 
        <% if current_user.is_a? (User) %>
        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
@@ -46,7 +38,7 @@
         <%= link_to "Login", new_user_session_path %>
         <% end %>
 
-    <%= yield %>
+  
 
     <!-- sidebar -->
             <div class="col-sm-3 offset-sm-1 blog-sidebar">
@@ -79,23 +71,23 @@
               <li><a href="#">Facebook</a></li>
             </ol>
           </div>
-        </div><!-- /.blog-sidebar -->
+        </div>
+      </div>
 
         <!-- footer -->
            <footer class="blog-footer">
-      <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>Blog template built for <a href="https://getbootstrap.com">Andres Painting</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
       <p>
         <a href="#">Back to top</a>
       </p>
     </footer>
 
-      <%= render "shared/nav" %>
 
     <% if session[:source] %>
    <p>Thank you for visiting me from: <%= session[:source] %></p>
    <% end %>
- </div>
 </div>
+
   </body>
 
 
