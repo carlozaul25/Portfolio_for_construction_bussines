@@ -25,8 +25,8 @@ puts '5 skills created'
 		subtitle: 'exterior painting',
 		body: 'Nullam ligula diam, sollicitudin rhoncus consequat id, tempus a risus. Nunc ornare 
 		id purus quis malesuada. Sed ac risus sit amet velit tristique faucibus.',
-		main_image: "http://via.placeholder.com/400x200",
-		thumb_image: "http://via.placeholder.com/200x150"
+		main_image: "http://via.placeholder.com/300x200",
+		thumb_image: "http://via.placeholder.com/300x200"
 )
 end
 

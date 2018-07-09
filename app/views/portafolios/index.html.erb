@@ -5,6 +5,9 @@
 	<p><%= link_to portafolio.title, portafolio_show_path(portafolio)%></p>
 	<p><%= portafolio.subtitle %></p>
 	<p><%= portafolio.body %></p>
+	<%= image_tag portafolio.thumb_image %>
+
 	<%= link_to "Edit", edit_portafolio_path(portafolio.id)%>
 <%= link_to 'Delete', portafolio_path(portafolio.id), method: :delete, data: { confirm: 'Are you sure?' }%><hr>
-<% end %>
+
+	<% end %>
