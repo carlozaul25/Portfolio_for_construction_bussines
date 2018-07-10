@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Portfolio</title>
     <%= csrf_meta_tags %>
 
@@ -9,16 +11,21 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render "shared/portafolio_nav" %>
 
-    <div>
-      <div><%= link_to "Home", root_path %></div>
-      <div><%= link_to "About", about_user_path %></div>
-      <div><%= link_to "Contact", contact_path %></div>
-      <div><%= link_to "Blog", blogs_path %></div>
-      <div><%= link_to "Portafolio", portafolios_path %></div>
-    </div>
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">My Portfolio</h1>
+        <p class="lead text-muted">Some of my best Work</p>
+        <p>
+          <%= link_to 'Find out more about me', about_user_path, class: 'btn btn-primary'%>
+          <%= link_to 'My Blogs', blogs_path, class: 'btn btn-secondary'%>
+        </p>
+      </div>
+    </section>
+
+    <%= render "shared/nav" %>
 
     <% if current_user.is_a?(User) %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
@@ -28,6 +35,17 @@
     <% end %>
 
     <%= yield %>
+
+
+     <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
 
     <% if session[:source] %>
       <p>Thanks for visiting me from <%= session[:source] %></p>

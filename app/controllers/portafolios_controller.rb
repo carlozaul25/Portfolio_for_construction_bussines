@@ -23,6 +23,7 @@ class PortafoliosController < ApplicationController
 
    	def edit 
    		@portafolio = Portafolio.find(params[:id])
+       3.times { @portafolio.constructions.build }
    	end
 
    	def update

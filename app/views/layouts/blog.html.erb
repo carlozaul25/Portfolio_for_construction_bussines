@@ -12,18 +12,17 @@
   </head>
 
   <body>
- <!-- start of nav -->
+
  <%= render 'shared/blog' %>
  <%= render 'shared/blog_head' %>
-<!-- end -->
 
 
-<!-- start of container -->
         <div class="container">
 
       <div class="row">
 
   <%= yield %>
+
 
        <% if current_user.is_a? (User) %>
        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
@@ -34,8 +33,6 @@
 
   
         <%= render 'shared/blog_sidebar' %>
-
-        <!-- footer -->
     
  <%= render 'shared/blog_footer' %>
 
