@@ -1,7 +1,7 @@
 class PortafoliosController < ApplicationController
   layout 'portafolio'
 	def index
-	@portafolio = Portafolio.all
+	@portafolio = Portafolio.all.order(created_at: :desc)
 	end
 
 	def new
