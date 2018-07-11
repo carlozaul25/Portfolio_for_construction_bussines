@@ -10,7 +10,7 @@ class PortafoliosController < ApplicationController
 	end
 
 	def create 
-	 @portafolio = Portafolio.new(params.require(:portafolio).permit(:title, :body, :subtitle, constructions_attributes: [:name]))
+	 @portafolio = Portafolio.new(params.require(:portafolio).permit(:title, :body, :subtitle, :image, constructions_attributes: [:name]))
 
     respond_to do |format|
       if @portafolio.save
@@ -29,7 +29,7 @@ class PortafoliosController < ApplicationController
    	def update
    	  @portafolio = Portafolio.find(params[:id])
       respond_to do |format|
-      if @portafolio.update(params.require(:portafolio).permit(:title, :body, :subtitle))
+      if @portafolio.update(params.require(:portafolio).permit(:title, :body, :subtitle, :image))
         format.html { redirect_to portafolios_path, notice: 'Your portafolio was successfully updated.' }
       else
         format.html { render :edit }
@@ -48,12 +48,7 @@ class PortafoliosController < ApplicationController
              format.html { redirect_to portafolios_url, notice: 'portfolio was successfully removed.' }
    			end
   		end	 
-
 end
-
-
-
-
 
 
 

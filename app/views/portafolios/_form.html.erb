@@ -1,30 +1,45 @@
-<%= form_for (@portafolio) do |f| %>
- 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<%= form_for @portafolio,html:{ multipart: true} do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :subtitle %>
+        <%= f.text_field :subtitle, class: 'form-control' %>
+      </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, class: 'form-control', rows: 13 %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :subtitle %>
-    <%= f.text_field :subtitle %>
-  </div>
+      <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
+  <hr>
 
-  <ul>
-    <%= f.fields_for :constructions do |cons|%>
-    <li> 
-      <%= cons.label :name %>
-      <%= cons.text_field :name %>
-    </li>
-    <% end %>
-  </ul>
+  <div class="col-md-12">
+    <h2>skills used:</h2>
+    <div>
+      <%= f.fields_for :constructions do |cons| %>
+        <div class="form-group">
+          <%= cons.label :name %>
+          <%= cons.text_field :name, class: 'form-control' %>
+        </div>
+      <% end %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="form-group">
+      <%= f.submit 'Save Portfolio Item', class: 'btn btn-primary btn-block' %>
+    </div>
   </div>
 <% end %>
